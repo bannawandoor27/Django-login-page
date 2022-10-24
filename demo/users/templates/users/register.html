@@ -1,0 +1,32 @@
+{% extends 'users/base.html' %}
+{% block content%}
+<h3 class="text-dark m-5">Register here</h3>
+<hr>
+<section class="vh-100" style="background-color: #eee;">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-12 col-xl-11">
+          <div class="card text-black" style="border-radius: 25px;">
+            <div class="card-body p-md-5">
+              <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 ">
+  
+                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+  
+
+                        <form action="" method="POST" class="mx-1 mx-md-4">
+                            {% csrf_token %}
+
+                            {% for field in form %}
+                                <div class="form-outline flex-fill mb-0">
+                                    <p>{{ field.label }}: <br> {{ field }}</p> 
+
+                                    {% for error in field.errors %}
+                                        <small style="color: red">{{ error }}</small>
+                                    {% endfor %}
+                                </div>
+                            {% endfor %}
+                            
+                            <button type="submit" class="btn btn-primary btn-lg p-2">Register</button>
+                        </form>
+{% endblock content%}

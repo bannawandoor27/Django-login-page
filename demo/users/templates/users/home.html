@@ -1,0 +1,17 @@
+{% extends 'users/base.html' %}
+
+{% block content%}
+    
+{% if user.is_authenticated %}
+<div class="alert alert-success fixed-top" role="alert">
+    <h3>Welcome {{ user.username }}!</h3>
+    <button class="btn btn-outline-secondary"><a href="{% url 'logout' %}" style="text-decoration:none;">Logout</a></button>
+</div>
+{% else %}
+<div class="alert alert-success" role="alert">
+    <h3>Welcome!</h3>
+    <button class="btn btn-primary mx-1"> <a href="{% url 'register' %}" style="text-decoration:none;color: white;">Signup</a></button>
+    <button class="btn btn-primary mx-1"><a href="{% url 'login' %}" style="text-decoration:none;color: white;">Login</a></button>
+</div>
+{% endif %}
+{% endblock content%}
